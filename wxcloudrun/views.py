@@ -4,6 +4,7 @@ import logging
 from django.http import JsonResponse
 from django.shortcuts import render
 from wxcloudrun.models import Counters
+from django.shortcuts import render, HttpResponse
 
 
 logger = logging.getLogger('log')
@@ -89,3 +90,11 @@ def update_count(request):
     else:
         return JsonResponse({'code': -1, 'errorMsg': 'action参数错误'},
                     json_dumps_params={'ensure_ascii': False})
+
+
+
+def first_try(request):
+    """
+    首次尝试云托管
+    """
+    return HttpResponse("<h1>意外发现云托管  Hello, world!</h1>")

@@ -16,6 +16,8 @@ Including another URLconf
 
 from wxcloudrun import views
 from django.conf.urls import url
+from django.contrib import admin
+from django.urls import path, re_path, include
 
 urlpatterns = (
     # 计数器接口
@@ -23,4 +25,11 @@ urlpatterns = (
 
     # 获取主页
     url(r'(/)?$', views.index),
+
+    # 论坛
+    path('forum/', include('forum.urls')),
+
+    # 首次尝试页面
+    url('first_try', views.first_try),
+
 )
